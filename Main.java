@@ -7,17 +7,19 @@ class Main {
     System.out.println("What is your name?");
     String name = scan.next();
     
-    System.out.println("What movie are you watching?");
+    System.out.println("What movie are you watching? ($7)");
     String movieName = scan.next();
 
     System.out.println("What time will you be watching the movie? (don't include a colon)");
     int movieTime = scan.nextInt();
 
-    System.out.println("Will you be buying any food? True or False:");
+    System.out.println("Will you be buying any food? ($5) True or False:");
     boolean food = scan.nextBoolean();
 
-    System.out.println("Will you be buying any drinks? True or False:");
-    boolean drink = scan.nextBoolean();
+    int totalMoney = 20;
+    int movieCost = 7;
+    int foodCost = 5;
+    int money2 = totalMoney - movieCost;
 
     //line to separate the chunks
     System.out.println("\n");
@@ -27,15 +29,13 @@ class Main {
     System.out.println(greeting(name));
     System.out.println(movie1(movieName));
 
-    int timing = time(movieTime);
-    System.out.println("Your movie will begin at " + timing);
+    System.out.println("Your movie will begin at " + movieTime);
 
     boolean food1 = concessions(food);
     System.out.println("Food: " + food1);
 
-    boolean drink1 = concessions2(drink);
-    System.out.println("Beverages: " + drink1);
-
+    System.out.print("Your change is $");
+    System.out.println(money(foodCost, money2, food));
     System.out.println(goodbye(name));
 
   }
@@ -43,7 +43,7 @@ class Main {
   //method for their name and greeting
   static String greeting(String name)
   {
-    String hello = "Hello, and welcome to Highwoods 20 " + name;
+    String hello = "Hello, and welcome to Highwoods 20 " + name + ", you have $20 to spend on the movie ticket and concessions";
     return hello;
   }
 
@@ -54,12 +54,6 @@ class Main {
     return movie;
   }
 
-  //method for the movie time
-  static int time(int movieTime)
-  {
-    int timing = movieTime;
-    return timing;
-  }
 
   //method for food
   static boolean concessions(boolean food)
@@ -67,12 +61,17 @@ class Main {
     boolean snacks = food;
     return snacks; 
   }
+
+  //method for concessions money
   
-  //method for drinks
-  static boolean concessions2(boolean drink)
+  static int money(int foodCost, int money2, boolean food)
   {
-    boolean drinks = drink;
-    return drinks; 
+    boolean snacks = food;
+    if(snacks)
+    {
+      money2 = money2 - foodCost;
+    }
+    return money2;
   }
 
   //method for goodbye
