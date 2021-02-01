@@ -2,6 +2,10 @@ import java.util.Scanner;
 class Main {
   public static void main(String[] args) {
     //scanner used to collect information about the movie theater
+
+    System.out.println("You have $20 to spend on the movie ticket and concessions");
+    System.out.println("\n");
+    
     Scanner scan = new Scanner(System.in);
 
     System.out.println("What is your name?");
@@ -43,7 +47,7 @@ class Main {
   //method for their name and greeting
   static String greeting(String name)
   {
-    String hello = "Hello, and welcome to Highwoods 20 " + name + ", you have $20 to spend on the movie ticket and concessions";
+    String hello = "Hello, and welcome to Highwoods 20 " + name;
     return hello;
   }
 
